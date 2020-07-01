@@ -5,12 +5,13 @@ const readline = require('readline')
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout, 
+    prompt: 'Jawaban: '
 })
 
 console.log('Selamat datang di permainan Tebak kata, silahkan isi jawaban dengan benar ya!\n')
 let i = 0;
 console.log(`Pertanyaan: ${dataObj[i].definition}`)
-rl.prompt()
+rl.prompt();
 
 rl.on('line', (answer) => {
     if (answer.toLowerCase() === dataObj[i].term.toLowerCase()) {
@@ -18,13 +19,13 @@ rl.on('line', (answer) => {
         i++;
         if (i < dataObj.length) {
             console.log(`Pertanyaan: ${dataObj[i].definition}`);
-            rl.prompt()
+            rl.prompt();
         } else {
             console.log('Hore Anda Menang!');
-            rl.close()
+            rl.close();
         }
     } else {
         console.log('Wkwkwk, Anda kurang beruntung!');
-        rl.prompt()
+        rl.prompt();
     }
 })
